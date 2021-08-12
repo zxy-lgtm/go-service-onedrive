@@ -97,6 +97,13 @@ type pairStorageNew struct {
 
 	// Required pairs
 	// Optional pairs
+
+	HasDefaultStoragePairs bool
+	DefaultStoragePairs    DefaultStoragePairs
+	HasStorageFeatures     bool
+	StorageFeatures        StorageFeatures
+	HasWorkDir             bool
+	WorkDir                string
 }
 
 // parsePairStorageNew will parse Pair slice into *pairStorageNew
@@ -192,9 +199,11 @@ func (s *Storage) parsePairStorageDelete(opts []Pair) (pairStorageDelete, error)
 
 // pairStorageList is the parsed struct
 type pairStorageList struct {
-	pairs       []Pair
-	HasListMode bool
-	ListMode    ListMode
+	pairs                []Pair
+	HasListMode          bool
+	ListMode             ListMode
+	HasContinuationToken bool
+	ContinuationToken    string
 }
 
 // parsePairStorageList will parse Pair slice into *pairStorageList
